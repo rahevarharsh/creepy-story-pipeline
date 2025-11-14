@@ -43,10 +43,15 @@ st.markdown("## 🖼️ Image Prompts")
 # Ensure selected_story is defined before using it
 
 image_prompts = selected_story.get("image_prompts", []) 
+if "style" not in st.session_state:
+    if st.button("madhubani style"):
+        st.session_state.style = "madhubani"
+
+    
 for i, prompt in enumerate(image_prompts, 1):
-    if st.button("not madhubani"):
+    if "style" not in st.session_state:
         st.markdown(f"```text\nGenerate visuals using this prompt template:{prompt[2:]}, drawn in a dark, cinematic cartoon style, with heavy shadows, dramatic lighting, night-time setting, detailed linework, and an eerie, surreal atmosphere. Inspired by adult animated shows and noir comics. Subtle neon glow, slightly distorted facial expressions, thick outlines, VHS effect, muted colors, and vintage textures. Stylized background with twilight skies, mysterious environments, and emotional tension. 4K, highly detailed, digital painting. Aspect ratio 9:16\n```")
-    else:
+    elif "style" in st.session_state:
         st.markdown(f"""{prompt[2:]}, illustrated in a Madhubani folk-art style blended with dark cinematic cartoon aesthetics. 
             Flat color planes, dense decorative patterns, double black outlines, and traditional motifs (lotus, fish, peacock, vines) integrated into characters and environment. 
             Night-time atmosphere with dramatic lighting, heavy shadows, subtle neon glow, and slightly distorted facial expressions for a surreal, eerie tone. 
