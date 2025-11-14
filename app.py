@@ -44,7 +44,18 @@ st.markdown("## 🖼️ Image Prompts")
 
 image_prompts = selected_story.get("image_prompts", []) 
 for i, prompt in enumerate(image_prompts, 1):
-    st.markdown(f"```text\nGenerate visuals using this prompt template:{prompt[2:]}, drawn in a dark, cinematic cartoon style, with heavy shadows, dramatic lighting, night-time setting, detailed linework, and an eerie, surreal atmosphere. Inspired by adult animated shows and noir comics. Subtle neon glow, slightly distorted facial expressions, thick outlines, VHS effect, muted colors, and vintage textures. Stylized background with twilight skies, mysterious environments, and emotional tension. 4K, highly detailed, digital painting. Aspect ratio 9:16\n```")
+    if st.button("not madhubani"):
+        st.markdown(f"```text\nGenerate visuals using this prompt template:{prompt[2:]}, drawn in a dark, cinematic cartoon style, with heavy shadows, dramatic lighting, night-time setting, detailed linework, and an eerie, surreal atmosphere. Inspired by adult animated shows and noir comics. Subtle neon glow, slightly distorted facial expressions, thick outlines, VHS effect, muted colors, and vintage textures. Stylized background with twilight skies, mysterious environments, and emotional tension. 4K, highly detailed, digital painting. Aspect ratio 9:16\n```")
+    else:
+        st.markdown(f"""{prompt[2:]}, illustrated in a Madhubani folk-art style blended with dark cinematic cartoon aesthetics. 
+            Flat color planes, dense decorative patterns, double black outlines, and traditional motifs (lotus, fish, peacock, vines) integrated into characters and environment. 
+            Night-time atmosphere with dramatic lighting, heavy shadows, subtle neon glow, and slightly distorted facial expressions for a surreal, eerie tone. 
+            Background filled with symbolic Madhubani details and stylized elements of Bengal folklore (temples, riverbanks, terracotta walls, monsoon sky). 
+            Thick outlines, detailed linework, muted earthy palette with occasional neon accents, VHS grain, vintage textures. 
+            Emotional tension in composition: [CAMERA ANGLE], [ACTION MOMENT], [FACIAL EXPRESSION]. 
+            Decorative border framing the scene with traditional motifs. 
+            4K, highly detailed, digital painting, aspect ratio 9:16.
+            """)
 else:
     st.warning("selected_story is not defined.")
 
